@@ -12,5 +12,5 @@ import {HeaderComponent} from "./components/header/header.component";
 })
 export class AppComponent {
   title = "customer-care-front-end-angular";
-  logoUrl = "./assets/client-network.gif";
+  logoUrl = "../assets/client-network.gif";
 }
