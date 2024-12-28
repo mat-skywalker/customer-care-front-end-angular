@@ -3,51 +3,16 @@
     <app-header [logoUrl]="logoUrl"></app-header>
     <section class="requests">
       <menu>
-        <actions (buttonSelected)="onButtonSelected($event)" class="actions"></actions>
+        <actions (actionSelected)="onActionSelected($event)" class="actions"></actions>
       </menu>
       <div class="tab-content">
-        <menu>
-          <ul>
-            @switch (buttonSelected) {
-              @case ("Customers") {
-                <li>
-                  <button>Search a Customer</button>
-                </li>
-                <li>
-                  <button>Create a new Customer</button>
-                </li>
-                <li>
-                  <button>Change the address of a Customer</button>
-                </li>
-                <li>
-                  <button>Delete a Customer</button>
-                </li>
-              }
-              @case ("Devices") {
-                <li>
-                  <button>Search a Device</button>
-                </li>
-                <li>
-                  <button>Create a new Device</button>
-                </li>
-                <li>
-                  <button>Change the color and state of a Device</button>
-                </li>
-                <li>
-                  <button>Delete a Device</button>
-                </li>
-              }
-              @case ("Customers And Devices") {
-                <li>
-                  <button>Search all the Devices associated to a Customer</button>
-                </li>
-              }
-              @default {
-                <p>{{ tabContent }}</p>
-              }
-            }
-          </ul>
-        </menu>
+        @if ((actionSelected || tabContent) && !subActionSelected) {
+          <sub-actions [actionSelected]="actionSelected"
+                       [tabContent]="tabContent"
+                       (subActionSelected)="onSubActionSelected($event)"></sub-actions>
+        } @else if (actionSelected && subActionSelected) {
+          <app-form [subActionSelected]="subActionSelected"></app-form>
+        }
       </div>
     </section>
   </main>

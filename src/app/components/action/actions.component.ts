@@ -9,18 +9,18 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class ActionsComponent {
   @Output()
-  buttonSelected = new EventEmitter<any>();
+  actionSelected = new EventEmitter<any>();
 
   onCustomersButtonSelected() {
-    this.buttonSelected.emit("Customers");
+    this.actionSelected.emit("Customers");
   }
 
   onDevicesButtonSelected() {
-    this.buttonSelected.emit("Devices");
+    this.actionSelected.emit("Devices");
   }
 
-  onCustomersAndDevicesButtonSelected() {
-    this.buttonSelected.emit("Customers And Devices");
+  onCustomerAndDevicesButtonSelected() {
+    this.actionSelected.emit("Customer And Devices");
   }
 
 }

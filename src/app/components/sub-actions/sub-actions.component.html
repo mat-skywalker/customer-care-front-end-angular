@@ -1,0 +1,42 @@
+<menu>
+  <ul>
+    @switch (actionSelected) {
+      @case ("Customers") {
+        <li>
+          <button (click)="onSubActionGetCustomerSelected()">Search a Customer</button>
+        </li>
+        <li>
+          <button (click)="onSubActionPostCustomerSelected()">Create a new Customer</button>
+        </li>
+        <li>
+          <button (click)="onSubActionPutCustomerSelected()">Change the address of a Customer</button>
+        </li>
+        <li>
+          <button (click)="onSubActionDeleteCustomerSelected()">Delete a Customer</button>
+        </li>
+      }
+      @case ("Devices") {
+        <li>
+          <button (click)="onSubActionGetDeviceSelected()">Search a Device</button>
+        </li>
+        <li>
+          <button (click)="onSubActionPostDeviceSelected()">Create a new Device</button>
+        </li>
+        <li>
+          <button (click)="onSubActionPutDeviceSelected()">Change the color and state of a Device</button>
+        </li>
+        <li>
+          <button (click)="onSubActionDeleteDeviceSelected()">Delete a Device</button>
+        </li>
+      }
+      @case ("Customer And Devices") {
+        <li>
+          <button (click)="onSubActionGetCustomerAndDevicesSelected()">Search all the Devices associated to a Customer</button>
+        </li>
+      }
+      @default {
+        <p>{{ tabContent }}</p>
+      }
+    }
+  </ul>
+</menu>
