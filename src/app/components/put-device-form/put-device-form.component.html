@@ -1,0 +1,27 @@
+<form (ngSubmit)="handlePutDevice(deviceCode.value,deviceState.value,deviceColor.value)">
+  <ul>
+    <li>
+      <label for="deviceCode">Insert the device's code:</label>
+    </li>
+    <li>
+      <input id="deviceCode" type="text" #deviceCode [value]="">
+    </li>
+    <li>
+      <label for="deviceState">Insert the device's state:</label>
+    </li>
+    <li>
+      <select id="deviceState" #deviceState>
+        <option value="ACTIVE">ACTIVE</option>
+        <option value="INACTIVE">INACTIVE</option>
+        <option value="LOST">LOST</option>
+      </select>
+    </li>
+    <li>
+      <label for="deviceColor">Insert the device's color:</label>
+    </li>
+    <li>
+      <input type="text" id="deviceColor" #deviceColor [value]=""/>
+      <input type="submit" value="Create"/>
+    </li>
+  </ul>
+</form>

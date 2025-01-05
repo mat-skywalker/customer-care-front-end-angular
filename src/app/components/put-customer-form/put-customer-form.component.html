@@ -1,0 +1,18 @@
+<form
+  (ngSubmit)="handlePutCustomer(customerSsn.value,customerAddress.value)">
+  <ul>
+    <li>
+      <label for="customerSsn">Insert the customer's Social Security Number:</label>
+    </li>
+    <li>
+      <input id="customerSsn" type="text" #customerSsn [value]=""/>
+    </li>
+    <li>
+      <label for="customerAddress">Insert the customer's address:</label>
+    </li>
+    <li>
+      <input id="customerAddress" type="text" #customerAddress [value]=""/>
+      <input type="submit" value="Update"/>
+    </li>
+  </ul>
+</form>

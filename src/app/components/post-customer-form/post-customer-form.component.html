@@ -1,0 +1,36 @@
+<form
+  (ngSubmit)="handlePostCustomer(customerName.value,customerSurname.value,customerSsn.value,customerAddress.value,deviceId.value)">
+  <ul>
+    <li>
+      <label for="customerName">Insert the customer's name:</label>
+    </li>
+    <li>
+      <input id="customerName" type="text" #customerName [value]=""/>
+    </li>
+    <li>
+      <label for="customerSurname">Insert the customer's surname:</label>
+    </li>
+    <li>
+      <input id="customerSurname" type="text" #customerSurname [value]=""/>
+    </li>
+    <li>
+      <label for="customerSsn">Insert the customer's Social Security Number:</label>
+    </li>
+    <li>
+      <input id="customerSsn" type="text" #customerSsn [value]=""/>
+    </li>
+    <li>
+      <label for="customerAddress">Insert the customer's address:</label>
+    </li>
+    <li>
+      <input id="customerAddress" type="text" #customerAddress [value]=""/>
+    </li>
+    <li>
+      <label for="deviceId">Insert the ID number of the device associated with this customer:</label>
+    </li>
+    <li>
+      <input id="deviceId" type="text" #deviceId [value]=""/>
+      <input type="submit" value="Create"/>
+    </li>
+  </ul>
+</form>

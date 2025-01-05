@@ -1,0 +1,12 @@
+<form
+  (ngSubmit)="handleDeleteCustomer(customerSsn.value)">
+  <ul>
+    <li>
+      <label for="customerSsn">Insert the customer's Social Security Number:</label>
+    </li>
+    <li>
+      <input id="customerSsn" type="text" #customerSsn [value]=""/>
+      <input type="submit" value="Delete"/>
+    </li>
+  </ul>
+</form>

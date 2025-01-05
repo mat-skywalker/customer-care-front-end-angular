@@ -1,0 +1,11 @@
+<form (ngSubmit)="handleDeleteDevice(deviceCode.value)">
+  <ul>
+    <li>
+      <label for="deviceCode">Insert the device's code:</label>
+    </li>
+    <li>
+      <input id="deviceCode" type="text" #deviceCode [value]="">
+      <input type="submit" value="Search"/>
+    </li>
+  </ul>
+</form>
