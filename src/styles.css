@@ -70,21 +70,21 @@ main h2 {
   color: #1b23ff;
 }
 
-.tab-content {
+.tab-menu {
   padding: 1rem;
   border-radius: 6px;
   background-color: #0b0fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.tab-content menu {
+.tab-menu menu {
   margin: 1rem 0;
   padding: 0;
   display: flex;
   gap: 0.5rem;
 }
 
-.tab-content menu div ul {
+.tab-menu menu div ul {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   background-color: transparent;
@@ -95,7 +95,7 @@ main h2 {
   list-style-type: none;
 }
 
-.tab-content menu div ul li {
+.tab-menu menu div ul li {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   background-color: transparent;
@@ -105,11 +105,11 @@ main h2 {
   transition: all 0.2s ease-in-out;
 }
 
-.tab-content h3 {
+.tab-menu h3 {
   margin: 0;
 }
 
-.tab-content p {
+.tab-menu p {
   font-size: 0.9rem;
   color: #fcff7b;
   margin-left: 1rem; /* Align paragraph with indentation if needed */
@@ -202,4 +202,31 @@ main h2 {
 .requests div form button.active {
   background-color: #fcff7b;
   color: #1b23ff;
+}
+
+.tab-content {
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #0b0fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tab-content div ul li {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #dc33ff;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-content h3 {
+  margin: 0;
+}
+
+.tab-content p {
+  font-size: 0.9rem;
+  color: #fcff7b;
+  margin-left: 1rem; /* Align paragraph with indentation if needed */
 }

@@ -12,8 +12,8 @@
   </form>
 } @else {
   <div *ngIf="customerAndDevices$ |async as customerAndDevices">
-    @if (customerAndDevices.customer) {
-      <ul>
+    <ul>
+      @if (customerAndDevices.customer) {
         <li>Name:</li>
         <p>{{ customerAndDevices.customer.name }}</p>
         <li>Surname:</li>
@@ -22,11 +22,9 @@
         <p>{{ customerAndDevices.customer.ssn }}</p>
         <li>Address:</li>
         <p>{{ customerAndDevices.customer.address }}</p>
-      </ul>
-    }
-    @if (customerAndDevices.devices && customerAndDevices.devices.length > 0) {
-      @for (device of customerAndDevices.devices; track $index) {
-        <ul>
+      }
+      @if (customerAndDevices.devices && customerAndDevices.devices.length > 0) {
+        @for (device of customerAndDevices.devices; track $index) {
           <li>Devices Associated:</li>
           <ul>
             <li>{{ $index + 1 }}</li>
@@ -39,11 +37,11 @@
             <li>Code:</li>
             <p>{{ device.code }}</p>
           </ul>
-        </ul>
+        }
+      } @else {
+        <p>No devices are associated to this customer</p>
       }
-    } @else {
-      <p>No devices are associated to this customer</p>
-    }
+    </ul>
   </div>
 }
 

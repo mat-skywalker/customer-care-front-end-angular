@@ -5,15 +5,18 @@
       <menu>
         <actions (actionSelected)="onActionSelected($event)" class="actions"></actions>
       </menu>
-      <div class="tab-content">
         @if ((actionSelected || tabContent) && !subActionSelected) {
+          <div class="tab-menu">
           <sub-actions [actionSelected]="actionSelected"
                        [tabContent]="tabContent"
                        (subActionSelected)="onSubActionSelected($event)"></sub-actions>
+          </div>
         } @else if (actionSelected && subActionSelected) {
+          <div class="tab-content">
           <app-form [subActionSelected]="subActionSelected"></app-form>
+          </div>
         }
-      </div>
+
     </section>
   </main>
 </div>
