@@ -2,11 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Customer} from "../types/Customer";
 import {Device} from "../types/Device";
+import {CustomerAndDevices} from "../types/CustomerAndDevices";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerCareBackendService {
+
+  customerAndDevices = null;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -60,10 +64,9 @@ export class CustomerCareBackendService {
       .subscribe((dataReceived) => console.log(dataReceived));
   }
 
-  getCustomerAndDevices(customerSsn: string) {
+  getCustomerAndDevices(customerSsn: string): Observable<CustomerAndDevices> {
     const encodedCustomerSsn = encodeURIComponent(customerSsn);
-    this.httpClient.get(`http://localhost:8081/customerAndDevices?customerSsn=${encodedCustomerSsn}`)
-      .subscribe((dataReceived) => console.log(dataReceived));
+    return this.httpClient.get<CustomerAndDevices>(`http://localhost:8081/customerAndDevices?customerSsn=${encodedCustomerSsn}`);
   }
 
 }

@@ -1,11 +1,50 @@
-<form (ngSubmit)="handleGetCustomerAndDevices(customerSsn.value)">
-  <ul>
-    <li>
-      <label for="customerSsn">Insert the customer's Social Security Number:</label>
-    </li>
-    <li>
-      <input id="customerSsn" type="text" #customerSsn [value]="">
-      <input type="submit" value="Search"/>
-    </li>
-  </ul>
-</form>
+@if (!submit) {
+  <form (ngSubmit)="handleGetCustomerAndDevices(customerSsn.value)">
+    <ul>
+      <li>
+        <label for="customerSsn">Insert the customer's Social Security Number:</label>
+      </li>
+      <li>
+        <input id="customerSsn" type="text" #customerSsn [value]="">
+        <input (click)="handleSubmit()" type="submit" value="Search"/>
+      </li>
+    </ul>
+  </form>
+} @else {
+  <div *ngIf="customerAndDevices$ |async as customerAndDevices">
+    @if (customerAndDevices.customer) {
+      <ul>
+        <li>Name:</li>
+        <p>{{ customerAndDevices.customer.name }}</p>
+        <li>Surname:</li>
+        <p>{{ customerAndDevices.customer.surname }}</p>
+        <li>Social Security Number</li>
+        <p>{{ customerAndDevices.customer.ssn }}</p>
+        <li>Address:</li>
+        <p>{{ customerAndDevices.customer.address }}</p>
+      </ul>
+    }
+    @if (customerAndDevices.devices && customerAndDevices.devices.length > 0) {
+      @for (device of customerAndDevices.devices; track $index) {
+        <ul>
+          <li>Devices Associated:</li>
+          <ul>
+            <li>{{ $index + 1 }}</li>
+            <li>Device ID:</li>
+            <p>{{ device.device_id }}</p>
+            <li>State:</li>
+            <p>{{ device.state }}</p>
+            <li>Color:</li>
+            <p>{{ device.color }}</p>
+            <li>Code:</li>
+            <p>{{ device.code }}</p>
+          </ul>
+        </ul>
+      }
+    } @else {
+      <p>No devices are associated to this customer</p>
+    }
+  </div>
+}
+
+
